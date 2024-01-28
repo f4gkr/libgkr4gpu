@@ -9,13 +9,15 @@ Key features:
 
 - Thread safe
 - Supports **ONLY** int ratios: output rate / input rate MUST be an integer
-- Supports oversampling out the output stream (typically for digital mode decoding)
+- Supports oversampling in the output stream (typically for digital mode decoding)
 - Dynamic add/remove/start/stop for the DDC channels
 - Includes a "filter cache" to avoid to recompute taps when multiple channels share the same config
 
-It is a simplified version of the code included in the [SDR-Technologies SDRVM](https://www.sdrtechnologies.fr/products/sdr-virtual-machine/). This library has been presented during the **FOSDEM 2024**.
+It is a simplified version of the code included in the [SDR-Technologies SDRVM](https://www.sdrtechnologies.fr/products/sdr-virtual-machine/).
 
-Please note that this library is (c) Sylvain AZARIAN (F4GKR) and is released under the *GNU General Public License v3.0*. If you need to reuse this code for specifict purposes, please contact me.
+This library has been presented during the **FOSDEM 2024**.
+
+Please note that this library is (c) Sylvain AZARIAN (F4GKR) and is released under the *GNU General Public License v3.0*. If you need to reuse this code for specific purposes, please contact me.
 
 ## Benchmark with the example app
 
