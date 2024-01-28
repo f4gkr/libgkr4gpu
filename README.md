@@ -21,10 +21,14 @@ Please note that this library is (c) Sylvain AZARIAN (F4GKR) and is released und
 
 ## Benchmark with the example app
 
-|CPU|GPU|1 channel|2 channels|
-|---|---|---|--|
-|ntel® Core™ i7-9700K CPU @ 3.60GHz × 8| GeForce RTX2060| **608** Mega samples/sec |  **530** Mega samples/sec |
-|Jetson Xavier NX| Jetson | **156** Mega samples/sec |  **117** Mega samples/sec |
+In this benchmark, we inject 256x1024 complex floats in the DDC. Taps number set to 7200.
+
+|CPU|GPU|FFT Size|1 channel|2 channels|
+|---|---|---|--|---|
+|ntel® Core™ i7-9700K CPU @ 3.60GHz × 8| GeForce RTX2060| 512*1024|**608** Mega samples/sec |  **530** Mega samples/sec |
+|Jetson Xavier NX| Jetson | 256*1024| 130 Mega samples/sec |  70 Mega samples/sec |
+|Jetson Xavier NX| Jetson | 512*1024| **156** Mega samples/sec | **117** Mega samples/sec |
+|Jetson Xavier NX| Jetson | 1024*1024| 143 Mega samples/sec |  103 Mega samples/sec |
 
 On the Xavier NX :
 
@@ -44,8 +48,7 @@ The [example](example.cpp) application works as follows :
 - We want two output streams :
   - first one is 2 MHz wide, centered at +25 MHz
   - seconde one is 5 MHz wide, centered at -10 MHz
-- Every 200 cycles, the app turns on/off Channel 1
-- Every 200 cycles, the app changes the center frequency of channel 2
+- Every 200 cycles, the app turns on/off Channel 1 
 
 To compile & enjoy :
 
@@ -148,7 +151,7 @@ Now the core of the API :
          }
 ```
 
-- The exact number of samples added to the active channels in a function of the FFT size and the (input sample rate)/(output sample rate) ratio.
+- The exact number of samples added to the active channels is a function of the FFT size and the (input sample rate)/(output sample rate) ratio.
 - One can retrieve the outputs via the **get** method, returning a CF32Block structure. Note that a *CF32BlockAlloc* alloc function is included in [datatypes.h](src/datatypes.h). This function returns **aligned alloc**.
 
 ``` c++
