@@ -25,7 +25,7 @@ In this benchmark, we inject 256x1024 complex floats in the DDC. Taps number set
 
 |CPU|GPU|FFT Size|1 channel|2 channels|
 |---|---|---|--|---|
-|ntel® Core™ i7-9700K CPU @ 3.60GHz × 8| GeForce RTX2060| 512*1024|**608** Mega samples/sec |  **530** Mega samples/sec |
+| Intel® Core™ i7-9700K CPU @ 3.60GHz × 8| GeForce RTX2060| 512*1024|**608** Mega samples/sec |  **530** Mega samples/sec |
 |Jetson Xavier NX| Jetson | 256*1024| 130 Mega samples/sec |  70 Mega samples/sec |
 |Jetson Xavier NX| Jetson | 512*1024| **156** Mega samples/sec | **117** Mega samples/sec |
 |Jetson Xavier NX| Jetson | 1024*1024| 143 Mega samples/sec |  103 Mega samples/sec |
